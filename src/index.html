@@ -6,14 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-        
-       
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+    
   </head>
   <body>
+    <nav class="menu-container">
+      <a class="logo-img" href="/src/index.html">
+           <img id="bookImg">
+       </a>
+       <h1 id="title">myLibrary</h1>
+  </nav>
+
     <div id="srcDiv">
       <select id="srcCollectionInput">
         <option selected="selected" value="">All categories</option>
@@ -30,14 +37,17 @@
         <option value="places"> Places </option>
         <option value="textbooks"> Textbooks </option>
     </select>
-    <button id="srcBtn">search</button>
-
+    <button id="srcBtn">
+      <img id="srcImg">
+    </button>
+  </div>
+    <div id="bookList"></div>
     <div id="output"></div>
   
 
       <script src="./script_dev.js"></script>
 
-    </div>
+    
 
     
   </body>

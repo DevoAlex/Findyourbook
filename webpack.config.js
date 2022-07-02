@@ -12,6 +12,7 @@ module.exports = (env,argv) => {
         output: {
             filename: "[name].bundle.js",
             path: path.resolve(__dirname, "build"),
+            
         },
         devServer: {
             static: "./build",
@@ -21,9 +22,25 @@ module.exports = (env,argv) => {
             new HtmlWebpackPlugin({
                 title: "FindYourBook",
                 template: path.resolve(__dirname, "./src/index.html",),
-                favicon: "./img/books-icon.png"
+                favicon: "./src/img/books-icon.png"
             }),
             new Dotenv(),
         ],
+        module: {
+            rules: [
+              {
+                test: /\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader'
+                ],
+               },
+               {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource'
+               },
+              
+            ],
+          },       
     };
 };

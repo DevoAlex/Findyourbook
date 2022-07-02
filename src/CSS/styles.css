@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: 'roboto', Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+  #srcCollectionInput{
+    height: 50px;
+    width: 300px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 20px;
+    font-family: 'Courier Prime', Helvetica, sans-serif;
+    background-color: #dedede;
+    outline: none;
+  }
+  #srcBtn{
+    width: 100px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #dedede;
+  }
+  #srcDiv {
+    border: 1px solid red;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    height: 50px;
+    width: 400px;
+    margin-top: -25px;
+    margin-left: -150px;
+
+  }
+  h2{
+    color: red;
+  }
+  .menu-container{
+    display: flex;
+  }
+  #srcImg{
+    height: 30px;
+    width: 30px;
+  }
+  #bookImg{
+    height: 50px;
+    width: 50px;
+    margin: 10px 0px 10px 30px;
+  }
+  #title{
+    font-family: 'Stick No Bills', Helvetica, sans-serif;
+  }
