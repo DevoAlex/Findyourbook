@@ -31,7 +31,7 @@ body {
     position: absolute;
     height: 50px;
     width: 400px;
-    margin-top: -25px;
+    margin-top: -225px;
     margin-left: -150px;
 
   }
@@ -52,4 +52,15 @@ body {
   }
   #title{
     font-family: 'Stick No Bills', Helvetica, sans-serif;
+  }
+  .content{
+    text-align: center;
+    border: 1px solid blue;
+    margin-top: 250px;
+  }
+  #output{
+    border: 1px solid red;
+  }
+  #descBtn{
+    font-family: 'Courier Prime', Helvetica, sans-serif;;
   }
