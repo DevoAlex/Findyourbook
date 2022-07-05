@@ -7,6 +7,6 @@ By choosing one subject from the selection and clicking on the search button you
 <img src="/src/img/screenshot-src.PNG" width="400" height="100">
 
 By clicking on the "see description" button you can also read a description of the book you selected.
-<img src="/src/img/screenshot-desc.PNG" width="500" height="300">
+<img src="/src/img/screenshot-desc.PNG" width="500" height="280">
 
 [try it!](https://findsyourbook.netlify.app)
