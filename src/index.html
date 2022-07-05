@@ -11,17 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
     
   </head>
   <body>
+    <!-- Navigation menu -->
+  
     <nav class="menu-container">
-      <a class="logo-img" href="/src/index.html">
+      <a class="logo-img">
            <img id="bookImg">
        </a>
-       <h1 id="title">myLibrary</h1>
+       <h1 id="title">FindYourBook</h1>
   </nav>
 
+  <!-- Modal pop up -->
   <div class="modal fade" id="descModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -33,13 +35,14 @@
           <!--description content-->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="closeBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-    <div class="content">
+  <!-- Search bar and selection input -->
+    
     <div id="srcDiv">
       <select id="srcCollectionInput">
         <option selected="selected" value="">Select a category</option>
@@ -59,10 +62,45 @@
     <button id="srcBtn">
       <img id="srcImg">
     </button>
-  </div>
+    </div>
+    <!-- Ouput div -->
+  
+  <div class="content">
     <div id="bookList"></div>
     <div id="output"></div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer">
+    <div class="container-fluid" id="footer-container">
+                
+      <div class="contacts">
+          <h2 id="contact">Contact me</h2>
+      </div>
+      
+      <div class="social-icon">
+          <a class="linkedin-logo" href="https://www.linkedin.com/in/alex-peluso-a42347227/" target="_blank">
+            <img src="/src/img/linkedin.png" id="linkedinImg">
+          </a>
+          <a class="instagram-logo" href="https://www.instagram.com/alex_peluso_/" target="_blank">
+            <img src="/src/img/instagram.png" id="instagramImg">
+          </a>
+          <a class="github-logo" href="https://github.com/DevoAlex" target="_blank">
+            <img src="/src/img/github.png" id="githubImg">
+          </a>
+      </div>
+
+    
+
+      <div class="copyright">
+        <p>Handcrafted by me &copy 2022</p>
+      </div>
+
+    </div>
+  </div>
+
+  </footer>
 
       <script src="./script_dev.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

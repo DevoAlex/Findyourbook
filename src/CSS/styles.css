@@ -1,10 +1,26 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: white;
     font-family: 'roboto', Helvetica, sans-serif;
     line-height: 1.6;
   }
+  
+  /* styling the nav menu */
+  #bookImg{
+    height: 50px;
+    width: 50px;
+    margin: 10px 0px 10px 30px;
+    cursor: auto;
+  }
+  #title{
+    font-family: 'Stick No Bills', Helvetica, sans-serif;
+    margin-left: 30px;
+    margin-top: 23px;
+    font-size: 40px;
+    color: #FF7733;
+  }
+  /* styling the search bar */
   #srcCollectionInput{
     height: 50px;
     width: 300px;
@@ -14,8 +30,11 @@ body {
     font-family: 'Courier Prime', Helvetica, sans-serif;
     background-color: #dedede;
     outline: none;
+    border: none;
+    cursor: pointer;
   }
   #srcBtn{
+    height: 50px;
     width: 100px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
@@ -23,44 +42,131 @@ body {
     cursor: pointer;
     background-color: #dedede;
   }
-  #srcDiv {
-    border: 1px solid red;
-    display: flex;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    height: 50px;
-    width: 400px;
-    margin-top: -225px;
-    margin-left: -150px;
-
-  }
-  h2{
-    color: red;
-  }
-  .menu-container{
-    display: flex;
-  }
   #srcImg{
     height: 30px;
     width: 30px;
   }
-  #bookImg{
-    height: 50px;
-    width: 50px;
-    margin: 10px 0px 10px 30px;
+  #srcDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;   
   }
-  #title{
-    font-family: 'Stick No Bills', Helvetica, sans-serif;
+  /* styling the output section */
+  h2{
+    color: #FF7733;
+    font-family: 'Courier Prime', Helvetica, sans-serif;
+    font-size: 40px;
+  }
+  #bookList {
+    margin-bottom: 50px;   
+  }
+  .menu-container{
+    display: flex;
   }
   .content{
     text-align: center;
-    border: 1px solid blue;
-    margin-top: 250px;
-  }
+    margin-top: 100px;
+    min-height: 350px;
+  } 
   #output{
-    border: 1px solid red;
+    margin-bottom: 30px;
   }
-  #descBtn{
-    font-family: 'Courier Prime', Helvetica, sans-serif;;
+  .description-button, #closeBtn{
+    font-family: 'Courier Prime', Helvetica, sans-serif;
+    background-color: #FF7733;
+    border: none;
+  }
+  .description-button:hover, #closeBtn:hover {
+    background-color: #ff9758;
+  }
+  .description-button:active, #closeBtn:active {
+    background-color: #c36b36;
+  }
+  #modal-body {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+  }
+  #exampleModalLabel {
+    color: #FF7733;
+  }  
+  .img-fluid {
+    padding-top: 20px;
+  }
+  /*styling the footer*/
+  #footer-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 0;
+    background-color: #404040;
+    
+   }
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 40px;   
+  }
+  .social-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  #instagramImg, #githubImg {
+    margin-left: 30px;
+  }
+  .contacts {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 25px;
+    }
+  #contact {
+    font-size: 35px;
+  }
+  .copyright {
+    display: flex;
+    justify-content: center;
+    color: #f4f4f4;
+    margin-top: -30px;
+  }
+  /*for tablets*/
+  @media (min-width: 768px) {
+    #srcDiv {
+      margin-top: 100px;
+    }
+    .content {
+      min-height: 280px;
+    }
+    #output {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      width: 750px;
+      height: 370px;
+      justify-content: center;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15%;
+    }
+    .img-fluid {
+      padding-top: 0px;
+    }
+  }
+  /*for desktops*/
+  @media (min-width: 992px) {
+
+  }
+  /*for large desktops*/
+  @media (min-width: 1200px) {
+    #srcDiv {
+      margin-top: 250px;
+    }    
   }

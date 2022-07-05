@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = (env,argv) => {
     const entryPath =
-    argv.mode === "development" ? "./src/script_dev.js" : "./src/script.js";
+    argv.mode === "development" ? "./src/script_dev.js" : "./src/script_dev.js";
     return {
         entry: {
             main: path.resolve(__dirname, entryPath),

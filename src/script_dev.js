@@ -2,6 +2,9 @@ import axios from 'axios';
 import './CSS/styles.css';
 import search from './img/search.png'
 import bookImage from './img/books-icon.png'
+import linkedin from './img/linkedin.png'
+import instagram from './img/instagram.png'
+import github from './img/github.png'
 
 //Getting all ids for the images and divs
 const srcImg = document.getElementById ('srcImg');
@@ -9,6 +12,15 @@ srcImg.src = search;
 
 const bookImg = document.getElementById('bookImg');
 bookImg.src = bookImage;
+
+const linkedinImage = document.getElementById('linkedinImg');
+linkedinImage.src = linkedin;
+
+const instagramImage = document.getElementById('instagramImg');
+instagramImage.src = instagram;
+
+const githubImage = document.getElementById('githubImg');
+githubImage.src = github;
 
 const bookList = document.getElementById('bookList');
 
@@ -31,6 +43,8 @@ let select = document.getElementById("srcCollectionInput");
         //we're gonna modify the output div HTML with this function
         //using template literals to pick different cover IDs
         //and different titles and authors
+        //i gave the button the key of the book as the id so i can use it later 
+        //to show the description of it
         document.getElementById("output").innerHTML+=`<div class="card mb-3" style="max-width: 740px;">
         <div class="row g-0">
           <div class="col-md-4">
@@ -58,13 +72,8 @@ let select = document.getElementById("srcCollectionInput");
   let srcButton = document.getElementById("srcBtn");
   srcButton.addEventListener('click', requestSubjectData);
 
-
-  // async function displayBookDesc(key){
-  //   const url_description = `https://openlibrary.org${key}.json`;
-  //     let description = await axios.get (url_description);
-  //     console.log(description);
-  // }
-
+//This is the function that gets the key of the book
+//for each element of the books array that we got previously
   async function bookDesc(){
     try{
       const descBtn = document.querySelectorAll(".description-button");
@@ -72,7 +81,8 @@ let select = document.getElementById("srcCollectionInput");
       descBtn.forEach((button) => {
         button.addEventListener('click', (e) =>{
          let key = e.target.id;
-
+//and here it calls another function that I used to display the description 
+//of the book with the given key 
            displayBookDesc(key);
        })
       })
@@ -82,15 +92,19 @@ let select = document.getElementById("srcCollectionInput");
     }
   };
 
-
+//this function is the one that shows the description in the modal that pops up
+//when you click the "see description" button
    async function displayBookDesc(key){
     try{
      const url_description = `https://openlibrary.org${key}.json`;
        let description = await axios.get (url_description);
-
+//This if statement makes sure that if there's no description for a certain book 
+//it shows a message that says it
+//otherwise if the description is under "description.value" or "description" it
+//shows it in the modal
        if (description.data.description == null || description.data.description == undefined) {
         document.getElementById("modal-body").innerHTML =
-          "<p>Non vi è alcuna descrizione</p>";
+          "<p>There is no description available for this book!</p>";
       } else {
         description.data.description.value != null
           ? (document.getElementById("modal-body").innerHTML =
