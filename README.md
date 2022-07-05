@@ -6,6 +6,7 @@ At first i created two development environments because i was ready to make anot
 It is a website created using HTML & CSS, JavaScript and Bootstrap and it works using OpenLibrary API's.
 
 By choosing one subject from the selection and clicking on the search button you can filter books by the selected subject.
+
 <img src="/src/img/screenshot-src.PNG" width="400" height="100">
 
 By clicking on the "see description" button you can also read a description of the book you selected.
