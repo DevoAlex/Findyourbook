@@ -7,8 +7,8 @@ import instagram from './img/instagram.png'
 import github from './img/github.png'
 
 //Getting all ids for the images and divs
-const srcImg = document.getElementById ('srcImg');
-srcImg.src = search;
+ const srcImg = document.getElementById ('srcImg');
+ srcImg.src = search;
 
 const bookImg = document.getElementById('bookImg');
 bookImg.src = bookImage;
@@ -33,12 +33,16 @@ let select = document.getElementById("srcCollectionInput");
 //Using async function to fetch datas
    async function requestSubjectData() {
      output.innerHTML="";
-     let url_libri = `https://openlibrary.org/subjects/${select.options[select.selectedIndex].value}.json`;
+     let url_libri = `https://openlibrary.org/subjects/${select.value}.json`;
        try{
         arrayLibri = await axios.get (url_libri);
         let axiosLibri = arrayLibri.data.works;
+        console.log(axiosLibri)
         bookList.innerHTML = "<h2>Book list</h2>";
         //Using a forEach loop to cycle the array and display a card for every element of it 
+        if (axiosLibri.length == 0) {
+          document.getElementById("output").innerHTML+= '<h3>There are no books of this kind</h3>'
+        } else {
         axiosLibri.forEach(element => {
         //we're gonna modify the output div HTML with this function
         //using template literals to pick different cover IDs
@@ -59,7 +63,8 @@ let select = document.getElementById("srcCollectionInput");
           </div>
         </div>
       </div>`
-       }); 
+       })
+      } 
        bookDesc();
      
         } catch (e){
