@@ -7,20 +7,15 @@ import instagram from './img/instagram.png'
 import github from './img/github.png'
 
 //Getting all ids for the images and divs
- const srcImg = document.getElementById ('srcImg');
- srcImg.src = search;
+const srcImg = document.getElementById ('srcImg').src = search;
+ 
+const bookImg = document.getElementById('bookImg').src = bookImage;
 
-const bookImg = document.getElementById('bookImg');
-bookImg.src = bookImage;
+const linkedinImage = document.getElementById('linkedinImg').src = linkedin;
 
-const linkedinImage = document.getElementById('linkedinImg');
-linkedinImage.src = linkedin;
+const instagramImage = document.getElementById('instagramImg').src = instagram;
 
-const instagramImage = document.getElementById('instagramImg');
-instagramImage.src = instagram;
-
-const githubImage = document.getElementById('githubImg');
-githubImage.src = github;
+const githubImage = document.getElementById('githubImg').src = github;
 
 const bookList = document.getElementById('bookList');
 
