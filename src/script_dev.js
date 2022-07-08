@@ -37,7 +37,6 @@ let select = document.getElementById("srcCollectionInput");
        try{
         arrayLibri = await axios.get (url_libri);
         let axiosLibri = arrayLibri.data.works;
-        console.log(axiosLibri)
         bookList.innerHTML = "<h2>Book list</h2>";
         //Using a forEach loop to cycle the array and display a card for every element of it 
         if (axiosLibri.length == 0) {
@@ -76,6 +75,11 @@ let select = document.getElementById("srcCollectionInput");
 //Adding event listener to the button so he can call the function when pressed
   let srcButton = document.getElementById("srcBtn");
   srcButton.addEventListener('click', requestSubjectData);
+  select.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter'){
+      requestSubjectData();
+    }
+  });
 
 //This is the function that gets the key of the book
 //for each element of the books array that we got previously
