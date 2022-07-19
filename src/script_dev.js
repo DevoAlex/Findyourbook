@@ -25,8 +25,11 @@ let arrayLibri =[]; //the array where i will put the book list
 
 //writing the function to call OpenLibrary API 
 let select = document.getElementById("srcCollectionInput");
+let srcButton = document.getElementById("srcBtn");
 //Using async function to fetch datas
-   async function requestSubjectData() {
+    srcButton.addEventListener('submit',
+    async function requestSubjectData(event) {
+    event.preventDefault()
      output.innerHTML="";
      let url_libri = `https://openlibrary.org/subjects/${select.value}.json`;
        try{
@@ -59,22 +62,23 @@ let select = document.getElementById("srcCollectionInput");
       </div>`
        })
       } 
+       
        bookDesc();
-     
+       
         } catch (e){
          console.log (e);
         } 
-    }
+    })
 
     
 //Adding event listener to the button so he can call the function when pressed
-  let srcButton = document.getElementById("srcBtn");
-  srcButton.addEventListener('click', requestSubjectData);
-  select.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter'){
-      requestSubjectData();
-    }
-  });
+  
+  srcButton.addEventListener('submit', requestSubjectData(event));
+  // select.addEventListener('keypress', (e) => {
+  //   if (e.key === 'Enter'){
+  //     requestSubjectData();
+  //   }
+  // });
 
 //This is the function that gets the key of the book
 //for each element of the books array that we got previously
