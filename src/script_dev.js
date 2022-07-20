@@ -20,25 +20,28 @@ const githubImage = document.getElementById('githubImg').src = github;
 const bookList = document.getElementById('bookList');
 
 
-
 let arrayLibri =[]; //the array where i will put the book list
 
 //writing the function to call OpenLibrary API 
-let select = document.getElementById("srcCollectionInput");
-let srcButton = document.getElementById("srcBtn");
+const form = document.getElementById("srcDiv");
 //Using async function to fetch datas
-    srcButton.addEventListener('submit',
     async function requestSubjectData(event) {
-    event.preventDefault()
-     output.innerHTML="";
-     let url_libri = `https://openlibrary.org/subjects/${select.value}.json`;
+    const select = document.getElementById("srcCollectionInput").value
+        .trim()
+        .split(" ")
+        .join("_");
+     event.preventDefault()
+     document.getElementById("spinner--container").classList.add("spinner--visible");
+     output.innerHTML= ""
+     let url_libri = `https://openlibrary.org/subjects/${select}.json`;
        try{
         arrayLibri = await axios.get (url_libri);
         let axiosLibri = arrayLibri.data.works;
         bookList.innerHTML = "<h2>Book list</h2>";
+        let outputDiv = document.getElementById("output");
         //Using a forEach loop to cycle the array and display a card for every element of it 
         if (axiosLibri.length == 0) {
-          document.getElementById("output").innerHTML+= '<h3>There are no books of this kind</h3>'
+          outputDiv.innerHTML+= '<h3>There are no books of this kind</h3>'
         } else {
         axiosLibri.forEach(element => {
         //we're gonna modify the output div HTML with this function
@@ -46,7 +49,7 @@ let srcButton = document.getElementById("srcBtn");
         //and different titles and authors
         //i gave the button the key of the book as the id so i can use it later 
         //to show the description of it
-        document.getElementById("output").innerHTML+=`<div class="card mb-3" style="max-width: 740px;">
+        outputDiv.innerHTML+=`<div class="card mb-3" style="max-width: 740px;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="https://covers.openlibrary.org/b/id/${element.cover_id}-M.jpg" class="img-fluid rounded-start" alt="Cover of the book">
@@ -66,19 +69,17 @@ let srcButton = document.getElementById("srcBtn");
        bookDesc();
        
         } catch (e){
-         console.log (e);
-        } 
-    })
+          document.getElementById("output").innerHTML += `Something went wrong: ${e.message}`
+          console.log (e);
+        } finally {
+          document.getElementById("spinner--container").classList.remove("spinner--visible");
+        }
+    }
 
     
 //Adding event listener to the button so he can call the function when pressed
   
-  srcButton.addEventListener('submit', requestSubjectData(event));
-  // select.addEventListener('keypress', (e) => {
-  //   if (e.key === 'Enter'){
-  //     requestSubjectData();
-  //   }
-  // });
+  form.addEventListener('submit', requestSubjectData)
 
 //This is the function that gets the key of the book
 //for each element of the books array that we got previously
@@ -96,8 +97,9 @@ let srcButton = document.getElementById("srcBtn");
       })
       
     } catch(e){
+      document.getElementById("output").innerHTML += `Something went wrong: ${e.message}`
       console.log (e);
-    }
+    } 
   };
 
 //this function is the one that shows the description in the modal that pops up
@@ -121,8 +123,9 @@ let srcButton = document.getElementById("srcBtn");
           "<p>" + description.data.description + "</p>");
       }
    } catch(e){
+    document.getElementById("modal-body").innerHTML += `Something went wrong: ${e.message}`
     console.log (e);
-  }
+  } 
 }
 
 
