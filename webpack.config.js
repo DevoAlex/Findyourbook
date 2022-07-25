@@ -20,7 +20,10 @@ module.exports = (env,argv) => {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-              }
+              },
+              allowedHosts: [
+                '.openlibrary.org',
+              ],
         },
         plugins: [
             new HtmlWebpackPlugin({
