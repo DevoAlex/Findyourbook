@@ -21,9 +21,7 @@ module.exports = (env,argv) => {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
               },
-              proxy: [
-                '.openlibrary.org',
-              ],
+              
               
         },
         plugins: [
