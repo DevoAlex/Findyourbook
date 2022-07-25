@@ -112,6 +112,7 @@ const form = document.getElementById("srcDiv");
 //it shows a message that says it
 //otherwise if the description is under "description.value" or "description" it
 //shows it in the modal
+        console.log(description)
        if (description.data.description == null || description.data.description == undefined) {
         document.getElementById("modal-body").innerHTML =
           "<p>There is no description available for this book!</p>";
